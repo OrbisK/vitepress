@@ -45,20 +45,19 @@ export const gitHubAlertsPlugin = (
           .slice(match[0].length)
           .trimStart()
         open.type = 'github_alert_open'
-        open.tag = 'div'
+        open.tag = 'ProseGHAlert'
         open.meta = {
           title,
           type
         }
         close.type = 'github_alert_close'
-        close.tag = 'div'
+        close.tag = 'ProseGHAlert'
       }
     }
   })
   md.renderer.rules.github_alert_open = function (tokens, idx) {
     const { title, type } = tokens[idx].meta
-    const attrs = ''
-    return `<div class="${type} custom-block github-alert"${attrs}><p class="custom-block-title">${title}</p>\n`
+    return `<ProseGHAlert type="${type}">${title}\n`
   }
 }
 

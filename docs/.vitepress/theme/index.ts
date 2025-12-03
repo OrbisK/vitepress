@@ -1,5 +1,8 @@
-import Theme from 'vitepress/theme'
+import DefaultTheme from 'vitepress/theme'
+import type { Theme } from 'vitepress'
 import 'virtual:group-icons.css'
 import './styles.css'
 
-export default Theme
+export default {
+  extends: DefaultTheme
+} satisfies Theme
